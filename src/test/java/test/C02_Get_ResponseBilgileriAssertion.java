@@ -28,7 +28,17 @@ public class C02_Get_ResponseBilgileriAssertion {
         // 3- bize donen response'i actual data olarak kaydet
 
         Response response= given().when().get(url);
-        response.prettyPrint();
+
+
+        // 4-Assertion
+
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                contentType("application/json; charset=utf-8").
+                header("server","Cowboy").
+                statusLine("HTTP/1.1 200 OK");
 
 
 
